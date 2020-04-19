@@ -27,19 +27,22 @@ class ThreeDemo extends Component {
     pyramid.position.set(-3, 0, 0);
     scene.add( pyramid );
 
-    var spheregeometry = new THREE.SphereGeometry( 1, 32, 32 );
-    var spherematerial = new THREE.MeshBasicMaterial( { color: 0xfaed27 } )
-    var sphere = new THREE.Mesh( spheregeometry, spherematerial );
-    sphere.position.set(3, 0, 0);
-    scene.add( sphere );
+    var cylindergeometry = new THREE.CylinderGeometry(.8, .8, .8, 6);
+    var cylindermaterial = new THREE.MeshBasicMaterial( { color: 0xfaed27 } )
+    var cylinder = new THREE.Mesh( cylindergeometry, cylindermaterial );
+    cylinder.position.set(3, 0, 0);
+    scene.add( cylinder );
 
     camera.position.z = 5;
     var animate = function () {
       requestAnimationFrame( animate );
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.01;
+      // cube.position.x += 0.01;
       pyramid.rotation.x += 0.01;
       pyramid.rotation.y += 0.01;
+      cylinder.rotation.x += 0.01;
+      cylinder.rotation.y += 0.01;
       renderer.render( scene, camera );
     };
     animate();
